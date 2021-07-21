@@ -1,0 +1,138 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*
+|--------------------------------------------------------------------------
+| Display Debug backtrace
+|--------------------------------------------------------------------------
+|
+| If set to TRUE, a backtrace will be displayed along with php errors. If
+| error_reporting is disabled, the backtrace will not display, regardless
+| of this setting
+|
+*/
+defined('SHOW_DEBUG_BACKTRACE') OR define('SHOW_DEBUG_BACKTRACE', true);
+
+/*
+|--------------------------------------------------------------------------
+| File and Directory Modes
+|--------------------------------------------------------------------------
+|
+| These prefs are used when checking and setting modes when working
+| with the file system.  The defaults are fine on servers with proper
+| security, but you may wish (or even need) to change the values in
+| certain environments (Apache running a separate process for each
+| user, PHP under CGI with Apache suEXEC, etc.).  Octal values should
+| always be used to set the mode correctly.
+|
+*/
+defined('FILE_READ_MODE') OR define('FILE_READ_MODE', 0644);
+defined('FILE_WRITE_MODE') OR define('FILE_WRITE_MODE', 0666);
+defined('DIR_READ_MODE') OR define('DIR_READ_MODE', 0755);
+defined('DIR_WRITE_MODE') OR define('DIR_WRITE_MODE', 0755);
+
+/*
+|--------------------------------------------------------------------------
+| File Stream Modes
+|--------------------------------------------------------------------------
+|
+| These modes are used when working with fopen()/popen()
+|
+*/
+defined('FOPEN_READ') OR define('FOPEN_READ', 'rb');
+defined('FOPEN_READ_WRITE') OR define('FOPEN_READ_WRITE', 'r+b');
+defined('FOPEN_WRITE_CREATE_DESTRUCTIVE') OR define('FOPEN_WRITE_CREATE_DESTRUCTIVE',
+    'wb'); // truncates existing file data, use with care
+defined('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE') OR define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE',
+    'w+b'); // truncates existing file data, use with care
+defined('FOPEN_WRITE_CREATE') OR define('FOPEN_WRITE_CREATE', 'ab');
+defined('FOPEN_READ_WRITE_CREATE') OR define('FOPEN_READ_WRITE_CREATE', 'a+b');
+defined('FOPEN_WRITE_CREATE_STRICT') OR define('FOPEN_WRITE_CREATE_STRICT', 'xb');
+defined('FOPEN_READ_WRITE_CREATE_STRICT') OR define('FOPEN_READ_WRITE_CREATE_STRICT', 'x+b');
+
+/*
+|--------------------------------------------------------------------------
+| Exit Status Codes
+|--------------------------------------------------------------------------
+|
+| Used to indicate the conditions under which the script is exit()ing.
+| While there is no universal standard for error codes, there are some
+| broad conventions.  Three such conventions are mentioned below, for
+| those who wish to make use of them.  The CodeIgniter defaults were
+| chosen for the least overlap with these conventions, while still
+| leaving room for others to be defined in future versions and user
+| applications.
+|
+| The three main conventions used for determining exit status codes
+| are as follows:
+|
+|    Standard C/C++ Library (stdlibc):
+|       http://www.gnu.org/software/libc/manual/html_node/Exit-Status.html
+|       (This link also contains other GNU-specific conventions)
+|    BSD sysexits.h:
+|       http://www.gsp.com/cgi-bin/man.cgi?section=3&topic=sysexits
+|    Bash scripting:
+|       http://tldp.org/LDP/abs/html/exitcodes.html
+|
+*/
+defined('EXIT_SUCCESS') OR define('EXIT_SUCCESS', 0); // no errors
+defined('EXIT_ERROR') OR define('EXIT_ERROR', 1); // generic error
+defined('EXIT_CONFIG') OR define('EXIT_CONFIG', 3); // configuration error
+defined('EXIT_UNKNOWN_FILE') OR define('EXIT_UNKNOWN_FILE', 4); // file not found
+defined('EXIT_UNKNOWN_CLASS') OR define('EXIT_UNKNOWN_CLASS', 5); // unknown class
+defined('EXIT_UNKNOWN_METHOD') OR define('EXIT_UNKNOWN_METHOD', 6); // unknown class member
+defined('EXIT_USER_INPUT') OR define('EXIT_USER_INPUT', 7); // invalid user input
+defined('EXIT_DATABASE') OR define('EXIT_DATABASE', 8); // database error
+defined('EXIT__AUTO_MIN') OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
+defined('EXIT__AUTO_MAX') OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+//Константы приложения
+define('PROJECT_NAME', 'barter-business.ru');
+define('MINIMUM_CASH', 500);
+//Ключи API бота телеграмма для уведомлений юзеров - не используется
+define('COMPANY_TELEGA_NOTIFY', '');
+define('MANAGER_TELEGA_NOTIFY', '');
+define('TEST_BOT', '');
+//Ключи API бота Вконтакте для уведомлений юзеров
+define('VK_TOKEN', 'c63aaf5b6a926f38b059e27dcf3c65a1c54d74254f3045edb54b7bba794ece2128e73c4c8360ebd28d6af');
+define('VK_SECRET_KEY', 'Ujss720SHjk78doisu162Ungs');
+define('VK_RESPONSE_KEY', '43284579');
+//ID в системе админа
+define('ADMIN_DEAL_ID', 'Jkus832Sdj32ksd');
+//ID админа страницы в ВК
+define('ADMIN_VK_ID', 24292013);
+//Процент системы
+define('PERCENT_SYSTEM', 5);
+//Секретный код Я.Деньги
+define('SECRET_YANDEX', 'oR9o+KJSRiDqUZkvFrYmSAqU');
+//Кошелек в Я.Деньгах
+define('WALLET_YANDEX', 410015495536043);
+//стоимость сервиса в месяц (указываем в рублях)
+define('COST_SERVICE', 500.00);
+//Лимит при котором будем начислять абонентку (указываем в рублях)
+define('MONTH_LIMIT_FOR_PAYMENT', 5000);
+//Ключ для работы крона
+define('CRON_JOB_KEY', '4h!fbd');
+// Dadata.ru
+define('DADATA_API', '77a74dce5b67a139d21beb5963d851387de20042');
+define('DADATA_SECRET', '1ce3131b4e4824ab85404a909354cb7d2500b7fb');
+define('SMSAERO', 'ecXojyMXgMsurXs1QiQZ6aNaEi3N');
+
+// Yandex
+//define('YANDEX_HTTP_NOTIFICATION', 'ErqeGNLqMoPXoOEekhjLIz9e');
+define('SHOP_ID', '');
+define('SCID', '');
+define('MONTHLY_PAYMENT', 'monthly');
+define('UPDATE_BALANCE', 'update');
+define('PAYMENT_THREEMONTH','paymant3');
+define('PAYMENT_SIXMONTH','paymant6');
+define('PAYMENT_TWELVEMONTH','paymant12');
+define('PAYMENT_VIP','paymantvip');
+// CHAT
+define('WEB_SOCKET', 'https://barter-business.ru:2021');
+
+// IDs
+define('UNACTIVATED', '0');
+define('MANAGER_ID', '2');
+define('AGENT_ID', '3');
+define('DELEGATE_ID', '4');
